@@ -19,22 +19,25 @@
 ### Project Overview
 ---
 
+During the turbulent period from March 2020 to March 2023, the global economic landscape experienced significant shifts, leading to widespread workforce reductions across numerous industries. In this project, I harnessed the power of SQL to meticulously clean a comprehensive dataset that included key variables such as company, industry, total laid off, percentage laid off, date, stage, country, and funds raised (in millions). The data was carefully refined by removing duplicate entries, normalizing disparate data formats, addressing both null and blank values, and eliminating unnecessary columns. This thorough cleaning process ensured that the dataset was both reliable and optimized for a detailed analysis.
 
+Once the dataset was streamlined, I conducted an exploratory analysis using SQL to uncover global layoff trends and gain deeper insights into the factors influencing these workforce shifts. The analysis revealed patterns that varied by industry, geographical region, and even the stage of the layoff process, while also highlighting how financial resilience—inferred from funds raised—correlated with the ability to navigate these challenges. Such insights not only paint a vivid picture of the immediate impacts of these layoffs but also contribute to a broader understanding of the evolving labor market dynamics during a period marked by uncertainty and rapid change.
 
 
 ---
 ### Data Sources
 ---
 
-
+The dataset used in this project was sourced from a public [GitHub repository](https://github.com/AlexTheAnalyst/MySQL-YouTube-Series). This repository provided a comprehensive collection of layoff data spanning from March 2020 to March 2023 and included critical details such as company, industry, total laid off, percentage laid off, date, stage, country, and funds raised (in millions). The accompanying metadata and documentation ensured that the dataset's accuracy and context were well understood, providing a solid foundation for subsequent analysis.
+Leveraging GitHub as the data source not only facilitated access to reliable, community-curated data but also underscored the transparency and collaborative spirit inherent in open-source projects. By utilizing this platform, I was able to effectively clean, normalize, and analyze the data, ultimately uncovering insightful global layoff trends during a tumultuous economic period. This approach reinforces the value of open-access data repositories in driving meaningful research and analysis.
 
 
 ---
 ### Tools
 ---
 
-- ***Microsoft Excel*** – Data Cleaning
-    - [Kaggle](https://www.kaggle.com/datasets/samayashar/startup-growth-and-funding-trends)
+- ***SQL*** – Data Cleaning
+    - [Github](https://github.com/AlexTheAnalyst/MySQL-YouTube-Series)
 - ***Tableau*** – Creating Reports
 - ***Microsoft Powerpoint*** – Creating Background Template
 
@@ -43,123 +46,100 @@
 ---
 
 In the initial data preparation phase, I performed the following tasks:
-1. Data Loading and Inspection.
-2. Handling Missing Values,
-3. Data Cleaning and Formatting.
+1. Data Loading and Inspection - SQL.
+2. Remove Duplicates.
+3. Handling Missing & NULL Values.
+4. Data Cleaning and Formatting.
+5. Remove Unnecessary Columns.
 
 ---
 ### Exploratory Data Analysis
 ---
 
-EDA involving exploring the data to answer key questions, such as:
+The analysis of the dataset, which captures layoff events from March 2020 through March 2023, reveals noteworthy patterns in how various companies and industries have been impacted during and after the peak of the COVID-19 pandemic.
 
-**Temporal Analysis**:
+**Company Size and Layoff Impact**:
 
-- How has startup activity evolved over time?
-  - Do certain years or periods show spikes in startup founding or significant increases in funding rounds?
-  - Could these temporal trends be linked to broader economic conditions, technological breakthroughs, or market shifts?
+While many small and medium-sized enterprises experienced significant workforce reductions, several industry giants were not immune to the overall downturn. Notably, large companies such as Amazon, Google, Meta, Salesforce, Microsoft, and Phillips each cut over 10,000 jobs. This dual trend suggests that although smaller companies might be more vulnerable to sudden economic shocks, even the largest corporations had to implement major layoffs as the crisis unfolded.
 
-- Is there a relationship between the year a startup was founded and its subsequent performance metrics (such as funding amount or valuation)?
-  - Are startups founded in more recent years securing higher funding or achieving faster valuations compared to older ones?
-  - Does the data suggest evolving market dynamics that influence the success and growth of startups over time?
+**Industry Impact**:
+The data indicates that the most affected sectors include:
+- ***Consumer***
+- ***Retail***
+- ***Transportation***
+- ***Finance***
+- ***Healthcare***
+- ***Food***
+- ***Real Estate***
+- ***Travel***
 
-**Industry and Geographic Distribution**:
+These sectors, intertwined with daily social and economic activity, experienced the greatest disruptions likely due to decreased consumer demand, supply chain interruptions, and widespread changes in business operations during the pandemic.
+In contrast, industries such as manufacturing, fintech, aerospace, energy, legal, product, recruiting, HR, and support observed comparatively lower layoff figures. This divergence highlights how certain sectors, possibly due to their different operational dynamics or resilience factors, managed to weather the pandemic's economic impact more effectively.
 
-- What is the distribution of startups across various industries and regions?
-  - Which industries have the highest concentration of startups or attract the most funding, and how does this vary regionally?
-  - Are there identifiable geographic clusters indicating regional startup hotspots or emerging markets?
+**Geographical Insights**:
+Geographically, the United States experienced the highest number of layoffs, with a staggering 256,559 jobs lost—an impact that was unparalleled by any other nation in the dataset. Following the U.S., India recorded 35,993 layoffs, indicating a significant though considerably less severe contraction in employment. The stark contrast between regions underscores varied economic vulnerabilities and recovery trajectories across countries.
 
-- How do key performance metrics differ by industry and region?
-  - Do certain regions consistently produce startups with higher revenues, valuations, or profitability rates?
-  - Are specific industries more dominant in particular regions, and how might this relate to local market conditions or cultural trends?
+**Year-Over-Year Trends**:
+A temporal analysis shows that layoffs have increased dramatically year over year within the examined period. In total, the dataset accounts for 383,159 employees laid off, emphasizing that the repercussions of the pandemic have not only been immediate but also compounded over time. This finding suggests that as the economic fallout evolved, organizations across multiple industries and regions continued to adjust by trimming their workforce.
 
-**Funding and Performance Dynamics**:
+**Summary of Observations**:
+- The dataset spans from March 2020 to March 2023, encapsulating the onset and evolution of pandemic-related economic challenges.
+- Both small/medium enterprises and large corporations underwent significant layoffs, reflecting the broad-ranging impacts of the crisis.
+- Industry-specific vulnerabilities are evident, with sectors such as consumer, retail, and transportation being highly affected, while others like manufacturing and fintech proved relatively resilient.
+- The United States bore the brunt of the layoffs, followed by India, pointing to varying degrees of economic fallout on a global scale.
+- The upward trend in layoffs highlights the prolonged and deepening impact of the pandemic over time.
 
-- How do funding rounds and amounts correlate with overall startup performance?
-  - Are startups that secure more funding rounds also achieving higher valuations or revenue growth?
-  - Can distinct funding patterns be observed among industries or during different time periods?
-
-- What insights can be drawn from funding efficiency—such as the ratio of funding received to employee count?
-  - Does a higher funding-to-employee ratio align with increased market share or profitability?
-  - How do these metrics vary across industries and regions, and what might this indicate about operational scale and resource allocation?
-
+This analysis not only elucidates the key trends across different dimensions—company size, industry, and geography—but also sets the stage for further investigation into the underlying causes and long-term implications of these layoff trends in a post-pandemic economy.
 
 
 ---
 ### Data Analysis
 ---
-- Created Bins:
-  - Funding Amount (Millions Actual)
-- Created Measures:
-   - Funding Ranges:
-     - ```
-        IF [Funding Amount (Millions Actual)] < 20000000 THEN "<$20M"
-        ELSEIF [Funding Amount (Millions Actual)] <= 40000000 THEN "$20M–$40M"
-        ELSEIF [Funding Amount (Millions Actual)] <= 60000000 THEN "$40M–$60M"
-        ELSEIF [Funding Amount (Millions Actual)] <= 80000000 THEN "$60M–$80M"
-        ELSEIF [Funding Amount (Millions Actual)] <= 100000000 THEN "$80M–$100M"
-        ELSEIF [Funding Amount (Millions Actual)] <= 120000000 THEN "$100M–$120M"
-        ELSEIF [Funding Amount (Millions Actual)] <= 140000000 THEN "$120M–$140M"
-        ELSEIF [Funding Amount (Millions Actual)] <= 160000000 THEN "$140M–$160M"
-        ELSEIF [Funding Amount (Millions Actual)] <= 180000000 THEN "$160M–$180M"
-        ELSEIF [Funding Amount (Millions Actual)] <= 200000000 THEN "$180M–$200M"
-        ELSEIF [Funding Amount (Millions Actual)] <= 220000000 THEN "$200M–$220M"
-        ELSEIF [Funding Amount (Millions Actual)] <= 240000000 THEN "$220M–$240M"
-        ELSEIF [Funding Amount (Millions Actual)] <= 260000000 THEN "$240M–$260M"
-        ELSEIF [Funding Amount (Millions Actual)] <= 280000000 THEN "$260M–$280M"
-        ELSEIF [Funding Amount (Millions Actual)] <= 300000000 THEN "$280M–$300M"
-        ELSE ">$300M"
-        END```
-   - Profitability & Exit Status:
-     - ```
-       IF [Profitable] = 1 THEN
-         "Profitable - " + [Exit Status]
-       ELSE
-        "Not Profitable - " + [Exit Status]
-       END
-       ```
+![Code 1](https://github.com/user-attachments/assets/176ba5ae-cc81-442a-b33c-618b05f194e3)
+
+![Code 2](https://github.com/user-attachments/assets/33a0863d-6a59-444d-a38f-9e1bc3fc30ef)
 
 
 ---
 ### Results
 ---
 
-The analysis of startup trends across various industries revealed a clear divergence in momentum over recent years. Notably, startups operating in the **E-Commerce**, **Ed-Tech**, and **Gaming** sectors have demonstrated robust **upward trends**. These industries are not only attracting increasing levels of funding—evidenced by rising funding rounds and higher valuations—but they also show healthy market engagement and growth signals across key performance indicators. In contrast, startups in sectors such as **AI**, **Cybersecurity**, **Fin-Tech**, **Health-Tech**, and **IoT** have exhibited a **downward trend**. The data indicates that these technology-intensive sectors are experiencing a decline in funding activity and overall growth, suggesting potential market challenges, increased competition, or shifting investor sentiment within these domains.
+The analysis of layoff data from March 2020 to March 2023 reveals significant findings about the multifaceted impact of the pandemic on the global workforce. The data show that layoffs affected both small and medium-sized companies as well as large multinational corporations. Notably, even industry giants like Amazon, Google, Meta, Salesforce, Microsoft, and Phillips each cut over 10,000 jobs, illustrating that no company was entirely immune to the unprecedented economic pressures triggered by the crisis.
+Layoffs commenced in March 2020 and increased dramatically over the three-year period, with a cumulative total of 383,159 employees laid off globally. This steady upward trend not only reflects an immediate reaction to the pandemic’s onset but also indicates a sustained period of workforce reduction as companies continuously adapted to evolving economic conditions. The temporal pattern emphasizes that the repercussions of the pandemic extended far beyond the initial shock, becoming an enduring challenge for businesses worldwide.
 
-A deeper dive into profitability metrics reveals that profitable **E-Commerce** startups are emerging as standout performers. These companies are achieving higher valuations and commanding higher median funding amounts, even while requiring fewer rounds of funding and operating with leaner employee structures. This efficiency not only marks them as attractive investment targets but also reflects their streamlined business models and rapid scalability. Additionally, the analysis shows that E-Commerce startups are more likely to be retained privately or acquired across sectors, indicating a diverse range of exit strategies that further contribute to their growth and profitability compared to their counterparts in other industries.
+Analyzing the impact by industry reveals that sectors deeply intertwined with consumer behavior and mobility suffered the most. Industries such as consumer, retail, transportation, finance, healthcare, food, real estate, and travel experienced severe disruptions, likely due to dwindling consumer demand, operational constraints, and supply chain interruptions. In contrast, sectors like manufacturing, fintech, aerospace, energy, legal, product development, recruiting, HR, and support registered comparatively lower layoff figures. This suggests that these industries may have benefited either from a lesser direct impact of the pandemic or from more effective mechanisms for adapting to the rapidly changing environment.
 
-Geographical segmentation of the data further enhances our understanding of the startup landscape. The results highlight that regions such as **Australia**, **Asia**, and **Europe** are home to a higher proportion of profitable startups than other regions. The clustering of successful startups in these territories suggests that local market conditions, regulatory environments, and cultural factors may be particularly favorable for startup growth. This regional advantage is evident in both the financial performance and strategic outcomes—such as higher valuations and attractive exit opportunities—observed in these areas. Together, these findings underscore the heterogeneity of the global startup ecosystem, emphasizing that industry trends, profitability metrics, and regional dynamics all play pivotal roles in shaping the competitive landscape.
+Geographical disparities also emerged clearly from the data. The United States, with 256,559 job losses, bore the brunt of the layoffs, reflecting the massive scale of its economic adjustments during the crisis. In comparison, India accounted for 35,993 layoffs, highlighting that while the global nature of the pandemic was undeniable, its severity and consequences varied considerably from one region to another.
+
+Overall, these results underscore a dual narrative of widespread economic strain across businesses of all sizes and specific challenges in industries and regions particularly vulnerable to pandemic-related disruptions. The findings not only quantify the scale of layoffs but also set the stage for further analysis into the underlying causes and long-term implications. Understanding these factors is critical as policymakers and business leaders strive to design recovery strategies and foster resilience in a post-pandemic economy.
 
 ---
 ### Recommendations
 ---
 
-Based on the analysis of startup funding trends and performance metrics, several actionable recommendations emerge to guide investors, startup founders, and industry stakeholders:
+Based on the comprehensive analysis of layoff trends from March 2020 to March 2023, several strategic recommendations emerge for both industry leaders and policymakers. Organizations, regardless of size, should invest in robust forecasting and risk assessment models that factor in the economic and operational disruptions observed during the pandemic. Leveraging advanced data analytics can help companies anticipate downturns more effectively and develop agile workforce strategies, including diversified talent retention and re-skilling initiatives. In particular, small and medium-sized enterprises should explore collaborative support networks or public-private partnerships to mitigate potential shocks that might otherwise lead to severe layoffs.
 
-1. Focus on High-Growth Sectors: The upward trends observed in the E-Commerce, Ed-Tech, and Gaming sectors suggest that these industries are currently attracting strong investor confidence and market interest. It is recommended that investors consider increasing their exposure to these sectors. For startup founders, leveraging emerging trends and adopting scalable business models in these fields may yield robust growth opportunities.
+Policymakers must also play a proactive role in crafting responsive, targeted economic measures to support affected industries. The disparate impact observed between regions—especially the significant workforce losses in the United States compared to other nations like India—highlights the need for tailored policy interventions that address local economic realities. A focus on incentivizing business resiliency through tax relief, subsidies, or low-interest financing during times of crisis can help stabilize employment levels and ensure that industries most vulnerable to systemic shocks receive the necessary support. Furthermore, investing in programs that enhance workforce adaptability, such as job training and digital skills development, is critical for preparing employees to thrive in rapidly evolving industry landscapes.
 
-2. Refine Strategies in Underperforming Sectors: The downward trends in AI, Cybersecurity, Fin-Tech, Health-Tech, and IoT sectors indicate that these industries might be facing increased market challenges, competition, or shifting investor sentiments. Stakeholders in these areas should reexamine their strategic approaches—whether through innovation, restructuring funding strategies, or exploring niche market opportunities—to reverse these declining trends.
+In addition to these organizational and governmental strategies, a continued investment in research is essential. Future studies should delve deeper into the interplay between specific industry characteristics and macroeconomic trends to better understand the catalysts behind such workforce disruptions. An in-depth analysis of sector-specific case studies and cross-regional comparisons can uncover best practices and novel approaches, ultimately guiding both strategic business planning and effective public policy formulation. By integrating these recommendations, stakeholders can not only address the immediate challenges highlighted by the data but also pave the way for a more resilient and adaptive employment ecosystem in the future.
 
-3. Capitalize on E-Commerce Efficiency: Profitable E-Commerce startups have shown remarkable strength by achieving higher valuations and median funding amounts with fewer funding rounds and a leaner employee base. This indicates an efficient use of resources and strong market positioning. Investors and entrepreneurs in this space should focus on further optimizing operations, scaling digital capabilities, and exploring strategic exit opportunities such as private-retention or cross-sector acquisitions to maximize value.
-
-4. Emphasize Regional Opportunities: The analysis highlights that regions such as Australia, Asia, and Europe are home to a larger proportion of profitable startups. This suggests that local markets in these regions offer favorable conditions for startup growth. It is advisable for investors to prioritize these geographies when seeking high-return opportunities and for startups to consider strategic positioning within these markets to benefit from regional advantages such as supportive regulatory frameworks, robust infrastructure, and active innovation ecosystems.
-
-By tailoring strategies to these insights, stakeholders can more effectively navigate the complex startup landscape, channel resources toward high-growth opportunities, and drive sustainable, long-term value in an ever-evolving global market.
 
 
 ---
 ### Limitations
 ---
 
-While this analysis offers valuable insights into startup growth and funding trends, several limitations should be acknowledged. First, the dataset—sourced from Kaggle—provides a comprehensive snapshot of startup metrics; however, it may not capture the full spectrum of the global startup ecosystem. Data quality and completeness can vary, and certain aspects—such as qualitative factors, macroeconomic influences, or emerging trends outside the recorded time frame—are not captured. Consequently, the insights derived are based solely on the available quantitative attributes (startup name, industry, funding rounds, funding amount, revenue, employees, market share, profitability, year founded, region, and exit status) and may not fully represent the underlying market realities.
+While the analysis provides valuable insights into global layoff trends from March 2020 to March 2023, several limitations must be acknowledged. First, the dataset is confined to publicly available data from reported layoffs, which means that significant events—especially those involving smaller or private companies—might not be fully captured. This limited scope could lead to an underrepresentation of the true extent of layoffs in certain sectors or regions, particularly where disclosure practices vary.
 
-Additionally, the analysis relies on aggregated measures and predefined classifications (e.g., grouping industries as upward or downward trending), which can potentially oversimplify the complex dynamics that drive startup performance. For example, the binary profitability indicator does not account for the nuances of financial health, such as margin fluctuations or cash flow variability. Similarly, while the segmentation of funding and performance metrics provides a structured overview, it might mask smaller, yet significant, variations within each category of startups. This level of aggregation may limit the ability to detect subtle trends that could be important for more granular decision-making.
+Moreover, the analysis aggregates data over a three-year period, which, while effective for observing long-term trends, may obscure important short-term fluctuations and localized impacts influenced by critical events or policy shifts. The variability in how layoffs are defined and reported across different industries and countries further complicates direct comparisons and may introduce inconsistencies in interpreting the severity of workforce reductions.
 
-Finally, the use of visualization tools like Tableau offers powerful interactive capabilities, but these visual representations also come with inherent limitations. The interactivity is confined by the structure of the dataset and the design choices made during analysis, potentially leading to oversights if users rely solely on visual summaries without further detailed investigation. Moreover, while global filters help standardize the view across multiple dashboards, they may inadvertently filter out important outlier data that could provide additional context. Despite these limitations, the project serves as an insightful starting point for understanding startup trends and provides a basis for further refined analyses.
+Additionally, it is important to note that the dataset does not account for the broader economic or policy contexts that could have influenced these layoffs. Factors such as governmental stimulus packages, regional labor market policies, or concurrent economic pressures are not integrated into the analysis, thus limiting the ability to draw direct causal inferences from the observed trends. This descriptive approach offers a snapshot of the situation without delving into the multifaceted dynamics that drive such large-scale employment changes.
+
+Finally, the inherent challenges of data quality and completeness mean that some layoff events might be misrecorded or subject to reporting biases. Future research with more comprehensive, standardized, or real-time data could address these limitations and provide a more nuanced understanding of the trends. Nonetheless, despite these constraints, the present analysis establishes an important foundation for understanding the widespread impacts of the pandemic on the global workforce and highlights critical areas for further investigation.
 
 
 ---
 ### References
 ---
 
-1. [Kaggle](https://www.kaggle.com/datasets/samayashar/startup-growth-and-funding-trends)
+1. [Github](https://github.com/AlexTheAnalyst/MySQL-YouTube-Series).
