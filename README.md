@@ -143,3 +143,7 @@ Finally, the inherent challenges of data quality and completeness mean that some
 ---
 
 1. [Github](https://github.com/AlexTheAnalyst/MySQL-YouTube-Series).
+2. [MySQL](https://www.mysql.com)
+3. [Microsoft Excel](https://www.microsoft.com)
+4. [Microsoft PowerPoint](https://www.microsoft.com)
+5. [Tableau](https://www.tableau.com)
