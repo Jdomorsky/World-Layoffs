@@ -36,10 +36,12 @@ Leveraging GitHub as the data source not only facilitated access to reliable, co
 ### Tools
 ---
 
-- ***SQL*** – Data Cleaning
+- ***Microsoft Excel*** - Data Inspection
+- ***Microsoft Visual Studio Code*** - IDE
+- ***SQL*** – Data Cleaning & Exploratory Analysis
     - [Github](https://github.com/AlexTheAnalyst/MySQL-YouTube-Series)
-- ***Tableau*** – Creating Reports
-- ***Microsoft Powerpoint*** – Creating Background Template
+- ***Tableau*** – Creating Interactive Dashboard
+- ***Microsoft Powerpoint*** – Creating Dashboard Background Template
 
 ---
 ### Data Cleaning
